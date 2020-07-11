@@ -24,24 +24,24 @@ foreach ($nic in $nics) {
             $info.PublicIPAddress = $publicIp.ipaddress
             } 
         } 
-        $info.OsType = $vm.StorageProfile.OsDisk.OsType 
-        $info.VMName = $vm.Name 
-        $info.ResourceGroupName = $vm.ResourceGroupName 
-        $info.Region = $vm.Location 
-        $info.VmSize = $vm.HardwareProfile.VmSize
-        $info.Status = $vm.PowerState
+    $info.OsType = $vm.StorageProfile.OsDisk.OsType 
+    $info.VMName = $vm.Name 
+    $info.ResourceGroupName = $vm.ResourceGroupName 
+    $info.Region = $vm.Location 
+    $info.VmSize = $vm.HardwareProfile.VmSize
+    $info.Status = $vm.PowerState
 
-        $info.ComputeCost = 0.0
-        if ($vmCost.length -gt 0) {
-            foreach ($k in $vmCost) {
-                $info.ComputeCost += $k.PretaxCost
-            }
-        } 
-        #$info.ComputeCost = $vmCost[0].PretaxCost
-        $info.VirturalNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
-        $info.Subnet = $nic.IpConfigurations.subnet.Id.Split("/")[-1] 
-        $info.PrivateIpAddress = $nic.IpConfigurations.PrivateIpAddress 
-        $report+=$info 
+    $info.ComputeCost = 0.0
+    if ($vmCost.length -gt 0) {
+        foreach ($k in $vmCost) {
+            $info.ComputeCost += $k.PretaxCost
+        }
     } 
+    #$info.ComputeCost = $vmCost[0].PretaxCost
+    $info.VirturalNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
+    $info.Subnet = $nic.IpConfigurations.subnet.Id.Split("/")[-1] 
+    $info.PrivateIpAddress = $nic.IpConfigurations.PrivateIpAddress 
+    $report+=$info 
+} 
 $report | ft VmName, ResourceGroupName, Region, VmSize, Status, ComputeCost, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
 $report | Export-CSV "$home/$reportName"

@@ -47,7 +47,12 @@ function Get-Metric-Minimum($dataArray) {
                 $Minimum = $data.Average
             }
         }    
-        return $Minimum
+        if ( $Minimum -eq 9999999 ) {
+            return "na"
+        } else {
+            return $Minimum
+        }
+        
     }
     else {
         return "na"
@@ -57,13 +62,20 @@ function Get-Metric-Minimum($dataArray) {
 
 function Get-Metric-Maximum($dataArray) {
     $Maximum = 0
+    $dataToCount = False
     if ($dataArray.Length -gt 0) {
         foreach ($data in $dataArray) {
+            $dataToCount = True
             if (($data.Average -gt 0) -and ($data.Average -gt $Maximum) ) {
                 $Maximum = $data.Average
             }
         }    
-        return $Maximum
+        if ( $dataToCount ) {
+            return $Maximum
+        } else {
+            return "na"
+        }
+        
     }
     else {
         return "na"
