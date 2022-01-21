@@ -1,3 +1,3 @@
 # Powershell-Examples
 
-Under Construction
+Under Construction  -- Sample Powershell scripts

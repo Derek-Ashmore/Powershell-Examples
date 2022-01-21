@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name": {
-            "defaultValue": "VF-AZDEV-VC05-MGMT-QUARANTINE_NSG",
+            "defaultValue": "JMU-AZDEV-VC05-MGMT-QUARANTINE_NSG",
             "type": "String"
         }
     },
@@ -17,7 +17,7 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "VF-AZDEV-APPS-Incoming-Allow-TCP-22-PAM",
+                        "name": "JMU-AZDEV-APPS-Incoming-Allow-TCP-22-PAM",
                         "properties": {
                             "description": "Allow TCP/22 DNS From PAM appliances (167.64.247.68/31)",
                             "protocol": "*",
@@ -36,7 +36,7 @@
                         }
                     },
                     {
-                        "name": "VF-AZDEV-APPS-Incoming-Allow-TCP-3389",
+                        "name": "JMU-AZDEV-APPS-Incoming-Allow-TCP-3389",
                         "properties": {
                             "description": "Allow TCP/3389 DNS From VF Network",
                             "protocol": "Tcp",
@@ -55,7 +55,7 @@
                         }
                     },
                     {
-                        "name": "VF-AZDEV-APPS-Incoming-Allow-TCP-22",
+                        "name": "JMU-AZDEV-APPS-Incoming-Allow-TCP-22",
                         "properties": {
                             "description": "Allow TCP/22 DNS From VF Network",
                             "protocol": "*",
@@ -74,7 +74,7 @@
                         }
                     },
                     {
-                        "name": "VF-AZDEV-DMZ-Outgoing-Deny-Access-CatchAll-Rule",
+                        "name": "JMU-AZDEV-DMZ-Outgoing-Deny-Access-CatchAll-Rule",
                         "properties": {
                             "description": "Block All Other Traffic",
                             "protocol": "*",
@@ -97,7 +97,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2019-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/VF-AZDEV-APPS-Incoming-Allow-TCP-22')]",
+            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/JMU-AZDEV-APPS-Incoming-Allow-TCP-22')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'))]"
             ],
@@ -121,7 +121,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2019-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/VF-AZDEV-APPS-Incoming-Allow-TCP-22-PAM')]",
+            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/JMU-AZDEV-APPS-Incoming-Allow-TCP-22-PAM')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'))]"
             ],
@@ -145,7 +145,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2019-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/VF-AZDEV-APPS-Incoming-Allow-TCP-3389')]",
+            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/JMU-AZDEV-APPS-Incoming-Allow-TCP-3389')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'))]"
             ],
@@ -169,7 +169,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2019-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/VF-AZDEV-DMZ-Outgoing-Deny-Access-CatchAll-Rule')]",
+            "name": "[concat(parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'), '/JMU-AZDEV-DMZ-Outgoing-Deny-Access-CatchAll-Rule')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VF_AZDEV_VC05_MGMT_QUARANTINE_NSG_name'))]"
             ],

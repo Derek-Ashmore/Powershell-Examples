@@ -2,8 +2,8 @@
 #Login-AzAccount
 #Set-AzContext -SubscriptionId $subscription
 
-# ./ApplyArmTemplate VF-AZDEV-VC05-MGMT-NET-RG Dev-Mgmt/template.json
-# ./ApplyArmTemplate VF-AZDEV-VC05-APPS-NET-RG Dev-Apps/template.json
+# ./ApplyArmTemplate JMU-AZDEV-VC05-MGMT-NET-RG Dev-Mgmt/template.json
+# ./ApplyArmTemplate JMU-AZDEV-VC05-APPS-NET-RG Dev-Apps/template.json
 
 $ResourceGroupName = $Args[0]
 $templateFilePath = $Args[1]
